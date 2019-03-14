@@ -15,7 +15,7 @@
     "nativescript-advanced-permissions": "^1.2.0",
     "nativescript-theme-core": "~1.0.4",
     "nativescript-vue": "~2.0.0",
-    "nativescript-wikitude": "file:../publish/package/nativescript-wikitude-8.3.0-2.0.0.tgz",
+    "nativescript-wikitude": "file:../publish/package/nativescript-wikitude-8.3.2-2.0.1.tgz",
     "tns-core-modules": "~5.2.2"
   },
   "devDependencies": {
