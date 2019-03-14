@@ -200,7 +200,7 @@ export class Wikitude extends Common implements IWikitudeFunctions {
             features = this.defaultFeatures;
         }
 
-        this._ios.loadArchitectWorldFromURLWithRequiredFeatures(realUrl, features);
+        this._ios.loadArchitectWorldFromURL(realUrl);
     }
 
     reload() {

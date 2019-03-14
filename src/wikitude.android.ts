@@ -71,6 +71,9 @@ import { ContentView } from 'tns-core-modules/ui/content-view/content-view';
 
     }
 
+    /**
+    Does not exist on 8.3.2
+
     @Interfaces([com.wikitude.architect.services.camera.CameraLifecycleListener])
     class CameraLifecycleListener extends java.lang.Object {
 
@@ -111,10 +114,11 @@ import { ContentView } from 'tns-core-modules/ui/content-view/content-view';
         }
 
     }
+    */
 
     @Interfaces([com.wikitude.architect.ArchitectView.SensorAccuracyChangeListener])
     class SensorAccuracyChangeListener extends java.lang.Object {
-        
+
         private owner: WeakRef<Wikitude>;
 
         constructor(owner: Wikitude) {
@@ -165,7 +169,11 @@ export class Wikitude extends Common implements IWikitudeFunctions {
 
     private jsonObjectListener: JsonObjectListener;
     private worldLoadedListener: WorldLoadedListener;
+    /**
+    Does not exist on 8.3.2
+
     private cameraLifecycleListener: CameraLifecycleListener;
+    */
     private sensorAccuracyChangeListener: SensorAccuracyChangeListener;
     private captureScreenCallBack: CaptureScreenCallback;
 
@@ -224,7 +232,11 @@ export class Wikitude extends Common implements IWikitudeFunctions {
 
         this.jsonObjectListener = this.registerJSONObjectListener();
         this.worldLoadedListener = this.registerWorldLoadedListener();
+        /**
+        Does not exist on 8.3.2
+
         this.cameraLifecycleListener = this.registerCameraLifecycleListener();
+        */
         this.sensorAccuracyChangeListener = this.registerSensorAccuracyChangeListener();
         this.captureScreenCallBack = this.registerCaptureScreenCallback();
 
@@ -490,13 +502,17 @@ export class Wikitude extends Common implements IWikitudeFunctions {
         }
     }
 
-    private registerCameraLifecycleListener() {
-        if ( this.cameraLifecycleListener ) {
-            return this.cameraLifecycleListener;
-        } else {
-            return new CameraLifecycleListener(this);
+        /**
+        Does not exist on 8.3.2
+
+        private registerCameraLifecycleListener() {
+            if ( this.cameraLifecycleListener ) {
+                return this.cameraLifecycleListener;
+            } else {
+                return new CameraLifecycleListener(this);
+            }
         }
-    }
+        */
 
     private registerSensorAccuracyChangeListener() {
         if ( this.sensorAccuracyChangeListener ) {
@@ -569,7 +585,7 @@ export class LocationProvider<Owner> {
     // #endregion
 
     public LocationManager: android.location.LocationManager = this.context.getSystemService(android.content.Context.LOCATION_SERVICE);
-    public Listener: android.location.ILocationListener = {
+    public Listener =  new android.location.LocationListener({
         onLocationChanged: function (location: any) {
             if (!this.isBetterLocation(location)) {
                 return;
@@ -581,7 +597,7 @@ export class LocationProvider<Owner> {
         onProviderDisabled: () => { },
         onProviderEnabled: () => { },
         onStatusChanged: () => { }
-    };
+    });
     public LocationListener: android.location.LocationListener = new android.location.LocationListener(this.Listener);
 
 
