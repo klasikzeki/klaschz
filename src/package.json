@@ -1,6 +1,6 @@
 {
     "name": "nativescript-wikitude-socios",
-    "version": "8.3.2-2.0.1",
+    "version": "8.4.0-2.0.2",
     "description": "Your awesome NativeScript plugin.",
     "main": "wikitude",
     "typings": "index.d.ts",
