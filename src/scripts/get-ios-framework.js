@@ -113,6 +113,21 @@ function clean_up() {
         console.log('Removed Temp Data');
     }
 
+    // Remove shell scripts of wikitude as otherwise you will have hard time deploying app to App Center
+    const platformFolder = path.normalize('platforms/ios/WikitudeSDK.framework/');
+
+    if ( fs.existsSync( `${platformFolder}/strip_wikitude_framework.sh` ) ) {
+        console.log('Removing script strip_wikitude_framework.sh');
+        fs.removeSync( `${platformFolder}/strip_wikitude_framework.sh` );
+        console.log('Removed script strip_wikitude_framework.sh');
+    }
+
+    if ( fs.existsSync( `${platformFolder}/wikitude_bitcode.sh` ) ) {
+        console.log('Removing script wikitude_bitcode.sh');
+        fs.removeSync( `${platformFolder}/wikitude_bitcode.sh` );
+        console.log('Removed script wikitude_bitcode.sh');
+    }
+
     if ( fs.existsSync( FILE_PATH ) ) {
         console.log('Removing WikitudeSDK Zip');
         fs.removeSync( FILE_PATH );
