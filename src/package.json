@@ -1,13 +1,13 @@
 {
     "name": "nativescript-wikitude-socios",
-    "version": "8.4.0-2.0.3",
+    "version": "2.1.0",
     "description": "Your awesome NativeScript plugin.",
     "main": "wikitude",
     "typings": "index.d.ts",
     "nativescript": {
         "platforms": {
-            "android": "5.2.2",
-            "ios": "5.2.2"
+            "android": "5.4.1",
+            "ios": "5.4.1"
         }
     },
     "scripts": {
@@ -51,16 +51,16 @@
     "homepage": "https://github.com/breningham/nativescript-wikitude",
     "readmeFilename": "README.md",
     "devDependencies": {
-        "@angular/cli": "^7.3.5",
+        "@angular/cli": "^8.0.0",
         "extract-zip": "^1.6.7",
-        "fs-extra": "^7.0.1",
+        "fs-extra": "^8.0.1",
         "prompt": "^1.0.0",
         "rimraf": "^2.6.3",
-        "semver": "^5.6.0",
-        "tns-core-modules": "^5.2.2",
-        "tns-platform-declarations": "^5.2.2",
-        "tslint": "^5.14.0",
-        "typescript": "^3.3.3333"
+        "semver": "^6.1.1",
+        "tns-core-modules": "^5.4.1",
+        "tns-platform-declarations": "^5.4.1",
+        "tslint": "^5.16.0",
+        "typescript": "^3.5.1"
     },
     "dependencies": {},
     "bootstrapper": "nativescript-plugin-seed"
