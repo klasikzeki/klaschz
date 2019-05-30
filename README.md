@@ -1,15 +1,13 @@
 # nativescript-wikitude
 
-[![npm version](https://badge.fury.io/js/nativescript-wikitude.svg)](http://badge.fury.io/js/nativescript-wikitude)
+### This is a fork of https://github.com/breningham/nativescript-wikitude that unfortunatelly was inactive
 
-[![NPM](https://nodei.co/npm/nativescript-wikitude.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/nativescript-wikitude/)
+[![npm version](https://badge.fury.io/js/nativescript-wikitude-chiliz.svg)](http://badge.fury.io/js/nativescript-wikitude)
 
-Provides nativescript access to Wikitude AR.
+[![NPM](https://nodei.co/npm/nativescript-wikitude-chiliz.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/nativescript-wikitude/)
 
-Versioning is as follows ${wikitude-version}-${plugin-version}
-example : `7.2.1-1.1.0`  is Wikitude Version 7.2.1, Plugin version 1.1.0. 
+Provides nativescript access to Wikitude AR (8.5.0).
 
-Screenshots coming soon!
 ## Prerequisites / Requirements
 
 ### Permissions

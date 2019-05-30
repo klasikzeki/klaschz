@@ -2,7 +2,7 @@
 const url = require('url');
 const path = require('path');
 
-const WIKITUDE_DOWNLOAD_URL = "https://cdn.wikitude.com/sdk/8.3.2/WikitudeSDK_iOS_8-3-2_2019-03-11_09-21-20.zip";
+const WIKITUDE_DOWNLOAD_URL = "https://cdn.wikitude.com/sdk/8.5.0/WikitudeSDK_iOS_8-5-0_2019-05-23_05-39-25.zip";
 const PARSED_URL = url.parse(WIKITUDE_DOWNLOAD_URL);
 const FILENAME = PARSED_URL.pathname.split("/").pop();
 const FILE_PATH = path.normalize('./' + FILENAME);
@@ -111,6 +111,21 @@ function clean_up() {
         console.log('Removing Temp Data');
         fs.removeSync( TEMP_PATH );
         console.log('Removed Temp Data');
+    }
+
+    // Remove shell scripts of wikitude as otherwise you will have hard time deploying app to App Center
+    const platformFolder = path.normalize('platforms/ios/WikitudeSDK.framework/');
+
+    if ( fs.existsSync( `${platformFolder}/strip_wikitude_framework.sh` ) ) {
+        console.log('Removing script strip_wikitude_framework.sh');
+        fs.removeSync( `${platformFolder}/strip_wikitude_framework.sh` );
+        console.log('Removed script strip_wikitude_framework.sh');
+    }
+
+    if ( fs.existsSync( `${platformFolder}/wikitude_bitcode.sh` ) ) {
+        console.log('Removing script wikitude_bitcode.sh');
+        fs.removeSync( `${platformFolder}/wikitude_bitcode.sh` );
+        console.log('Removed script wikitude_bitcode.sh');
     }
 
     if ( fs.existsSync( FILE_PATH ) ) {
