@@ -2,7 +2,7 @@
 const url = require('url');
 const path = require('path');
 
-const WIKITUDE_DOWNLOAD_URL = "https://cdn.wikitude.com/sdk/8.5.0/WikitudeSDK_iOS_8-5-0_2019-05-23_05-39-25.zip";
+const WIKITUDE_DOWNLOAD_URL = "https://cdn.wikitude.com/sdk/8.9.1/WikitudeSDK_iOS_8-9-1_2019-10-01_02-34-12.zip";
 const PARSED_URL = url.parse(WIKITUDE_DOWNLOAD_URL);
 const FILENAME = PARSED_URL.pathname.split("/").pop();
 const FILE_PATH = path.normalize('./' + FILENAME);

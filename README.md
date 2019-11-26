@@ -6,7 +6,7 @@
 
 [![NPM](https://nodei.co/npm/nativescript-wikitude-chiliz.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/nativescript-wikitude/)
 
-Provides nativescript access to Wikitude AR (8.5.0).
+Provides nativescript access to Wikitude AR (8.9.1).
 
 ## Prerequisites / Requirements
 
