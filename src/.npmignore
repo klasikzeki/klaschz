@@ -8,6 +8,7 @@ platforms/android/*
 !platforms/android/include.gradle
 !platforms/android/*.aar
 !platforms/android/*.jar
+platforms/ios/WikitudeSDK.framework/*.sh
 
 wikitude.ios.d.ts
 wikitude.android.d.ts
