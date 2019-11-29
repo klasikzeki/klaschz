@@ -358,11 +358,7 @@ export class Wikitude extends Common implements IWikitudeFunctions {
     }
 
     hasFeature(feature: number): boolean {
-        if (feature === null) {
-            return com.wikitude.architect.ArchitectView.isDeviceSupported(this.currentActivity);
-        }
-
-        const missingFeatures: any = com.wikitude.architect.ArchitectView.isDeviceSupported(this.currentActivity, feature);
+        const missingFeatures: any = com.wikitude.architect.ArchitectView.isDeviceSupporting(this.currentActivity, feature);
         return !missingFeatures.areFeaturesMissing();
     }
 
