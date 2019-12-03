@@ -15,152 +15,152 @@ import { knownFolders } from 'tns-core-modules/file-system';
 import { fromNativeSource, ImageSource } from 'tns-core-modules/image-source';
 import { ContentView } from 'tns-core-modules/ui/content-view/content-view';
 
-    @Interfaces([com.wikitude.architect.ArchitectJavaScriptInterfaceListener])
-    class JsonObjectListener extends java.lang.Object {
+@Interfaces([com.wikitude.architect.ArchitectJavaScriptInterfaceListener])
+class JsonObjectListener extends java.lang.Object {
 
-        private owner: WeakRef<Wikitude>;
+    private owner: WeakRef<Wikitude>;
 
-        constructor(owner: Wikitude) {
-            super();
-            this.owner = new WeakRef(owner);
-            return global.__native(this);
-        }
-
-        onJSONObjectReceived(JsonObject: org.json.JSONObject) {
-
-            const owner = this.owner.get();
-            const json = JSON.parse(<any>JsonObject);
-
-            if (owner) {
-                owner.onJSONObjectReceived(json);
-            }
-        }
-
+    constructor(owner: Wikitude) {
+        super();
+        this.owner = new WeakRef(owner);
+        return global.__native(this);
     }
 
-    @Interfaces([com.wikitude.architect.ArchitectView.ArchitectWorldLoadedListener])
-    class WorldLoadedListener extends java.lang.Object {
+    onJSONObjectReceived(JsonObject: org.json.JSONObject) {
 
-        private owner: WeakRef<Wikitude>;
+        const owner = this.owner.get();
+        const json = JSON.parse(<any>JsonObject);
 
-        constructor(owner: Wikitude) {
-            super();
-            this.owner = new WeakRef(owner);
-            return global.__native(this);
+        if (owner) {
+            owner.onJSONObjectReceived(json);
         }
-
-        worldLoadFailed(errorCode: number, description: string, failingUrl: string) {
-
-            const owner = this.owner.get();
-
-            if (owner) {
-                owner.log(`Error ${errorCode} while Loading URL: ${failingUrl}`);
-                owner.log(`Error Description is ${description}`);
-
-                owner.onWorldLoadFailed(failingUrl, errorCode);
-            }
-        }
-
-        worldWasLoaded(url: string) {
-            const owner = this.owner.get();
-
-            if (owner) {
-                owner.onWorldLoadSuccess(url);
-            }
-        }
-
     }
 
-    /**
-    Does not exist on 8.3.2
+}
 
-    @Interfaces([com.wikitude.architect.services.camera.CameraLifecycleListener])
-    class CameraLifecycleListener extends java.lang.Object {
+@Interfaces([com.wikitude.architect.ArchitectView.ArchitectWorldLoadedListener])
+class WorldLoadedListener extends java.lang.Object {
 
-        private owner: WeakRef<Wikitude>;
+    private owner: WeakRef<Wikitude>;
 
-        constructor(owner: Wikitude) {
-            super();
-
-            this.owner = new WeakRef(owner);
-            return global.__native(this);
-        }
-
-        onCameraOpen(): void {
-
-            const owner = this.owner.get();
-
-            if (owner) {
-                owner.onCameraOpen();
-            }
-        }
-
-        onCameraOpenAbort(): void {
-            const owner = this.owner.get();
-
-            if (owner) {
-                owner.onCameraAborted();
-            }
-        }
-
-        onCameraReleased(): void {
-            const owner = this.owner.get();
-
-            if (owner) {
-                owner.onCameraClose();
-            } else {
-                console.log('[ERR] owner is falsy on CameraLifecycleListener Instance');
-            }
-        }
-
-    }
-    */
-
-    @Interfaces([com.wikitude.architect.ArchitectView.SensorAccuracyChangeListener])
-    class SensorAccuracyChangeListener extends java.lang.Object {
-
-        private owner: WeakRef<Wikitude>;
-
-        constructor(owner: Wikitude) {
-            super();
-
-            this.owner = new WeakRef(owner);
-            return global.__native(this);
-        }
-
-        onCompassAccuracyChanged(accuracy: number) {
-
-            const owner = this.owner.get();
-
-            if (owner) {
-                owner.onCompassAccuracyChanged(accuracy);
-            }
-        }
-
+    constructor(owner: Wikitude) {
+        super();
+        this.owner = new WeakRef(owner);
+        return global.__native(this);
     }
 
-    @Interfaces([com.wikitude.architect.ArchitectView.CaptureScreenCallback])
-    class CaptureScreenCallback extends java.lang.Object {
+    worldLoadFailed(errorCode: number, description: string, failingUrl: string) {
 
-        private owner: WeakRef<Wikitude>;
+        const owner = this.owner.get();
 
-        constructor(owner: Wikitude) {
-            super();
+        if (owner) {
+            owner.log(`Error ${errorCode} while Loading URL: ${failingUrl}`);
+            owner.log(`Error Description is ${description}`);
 
-            this.owner = new WeakRef(owner);
-            return global.__native(this);
+            owner.onWorldLoadFailed(failingUrl, errorCode);
         }
-
-        onScreenCaptured(bitmap: android.graphics.Bitmap) {
-
-            const owner = this.owner.get();
-
-            if (owner) {
-                owner.onScreenCaptured(bitmap);
-            }
-        }
-
     }
+
+    worldWasLoaded(url: string) {
+        const owner = this.owner.get();
+
+        if (owner) {
+            owner.onWorldLoadSuccess(url);
+        }
+    }
+
+}
+
+/**
+Does not exist on 8.3.2
+
+@Interfaces([com.wikitude.architect.services.camera.CameraLifecycleListener])
+class CameraLifecycleListener extends java.lang.Object {
+
+    private owner: WeakRef<Wikitude>;
+
+    constructor(owner: Wikitude) {
+        super();
+
+        this.owner = new WeakRef(owner);
+        return global.__native(this);
+    }
+
+    onCameraOpen(): void {
+
+        const owner = this.owner.get();
+
+        if (owner) {
+            owner.onCameraOpen();
+        }
+    }
+
+    onCameraOpenAbort(): void {
+        const owner = this.owner.get();
+
+        if (owner) {
+            owner.onCameraAborted();
+        }
+    }
+
+    onCameraReleased(): void {
+        const owner = this.owner.get();
+
+        if (owner) {
+            owner.onCameraClose();
+        } else {
+            console.log('[ERR] owner is falsy on CameraLifecycleListener Instance');
+        }
+    }
+
+}
+*/
+
+@Interfaces([com.wikitude.architect.ArchitectView.SensorAccuracyChangeListener])
+class SensorAccuracyChangeListener extends java.lang.Object {
+
+    private owner: WeakRef<Wikitude>;
+
+    constructor(owner: Wikitude) {
+        super();
+
+        this.owner = new WeakRef(owner);
+        return global.__native(this);
+    }
+
+    onCompassAccuracyChanged(accuracy: number) {
+
+        const owner = this.owner.get();
+
+        if (owner) {
+            owner.onCompassAccuracyChanged(accuracy);
+        }
+    }
+
+}
+
+@Interfaces([com.wikitude.architect.ArchitectView.CaptureScreenCallback])
+class CaptureScreenCallback extends java.lang.Object {
+
+    private owner: WeakRef<Wikitude>;
+
+    constructor(owner: Wikitude) {
+        super();
+
+        this.owner = new WeakRef(owner);
+        return global.__native(this);
+    }
+
+    onScreenCaptured(bitmap: android.graphics.Bitmap) {
+
+        const owner = this.owner.get();
+
+        if (owner) {
+            owner.onScreenCaptured(bitmap);
+        }
+    }
+
+}
 
 export class Wikitude extends Common implements IWikitudeFunctions {
 
@@ -358,7 +358,11 @@ export class Wikitude extends Common implements IWikitudeFunctions {
     }
 
     hasFeature(feature: number): boolean {
-        const missingFeatures: any = com.wikitude.architect.ArchitectView.isDeviceSupporting(this.currentActivity, feature);
+        if (feature === null) {
+            return com.wikitude.architect.ArchitectView.isDeviceSupported(this.currentActivity);
+        }
+
+        const missingFeatures: any = com.wikitude.architect.ArchitectView.isDeviceSupported(this.currentActivity, feature);
         return !missingFeatures.areFeaturesMissing();
     }
 
@@ -483,7 +487,7 @@ export class Wikitude extends Common implements IWikitudeFunctions {
     }
 
     private registerJSONObjectListener() {
-        if ( this.jsonObjectListener ) {
+        if (this.jsonObjectListener) {
             return this.jsonObjectListener;
         } else {
             return new JsonObjectListener(this);
@@ -491,27 +495,27 @@ export class Wikitude extends Common implements IWikitudeFunctions {
     }
 
     private registerWorldLoadedListener() {
-        if ( this.worldLoadedListener ) {
+        if (this.worldLoadedListener) {
             return this.worldLoadedListener;
         } else {
             return new WorldLoadedListener(this);
         }
     }
 
-        /**
-        Does not exist on 8.3.2
+    /**
+    Does not exist on 8.3.2
 
-        private registerCameraLifecycleListener() {
-            if ( this.cameraLifecycleListener ) {
-                return this.cameraLifecycleListener;
-            } else {
-                return new CameraLifecycleListener(this);
-            }
+    private registerCameraLifecycleListener() {
+        if ( this.cameraLifecycleListener ) {
+            return this.cameraLifecycleListener;
+        } else {
+            return new CameraLifecycleListener(this);
         }
-        */
+    }
+    */
 
     private registerSensorAccuracyChangeListener() {
-        if ( this.sensorAccuracyChangeListener ) {
+        if (this.sensorAccuracyChangeListener) {
             return this.sensorAccuracyChangeListener;
         } else {
             return new SensorAccuracyChangeListener(this);
@@ -519,7 +523,7 @@ export class Wikitude extends Common implements IWikitudeFunctions {
     }
 
     private registerCaptureScreenCallback() {
-        if ( this.captureScreenCallBack ) {
+        if (this.captureScreenCallBack) {
             return this.captureScreenCallBack;
         } else {
             return new CaptureScreenCallback(this);
@@ -581,7 +585,7 @@ export class LocationProvider<Owner> {
     // #endregion
 
     public LocationManager: android.location.LocationManager = this.context.getSystemService(android.content.Context.LOCATION_SERVICE);
-    public Listener =  new android.location.LocationListener({
+    public Listener = new android.location.LocationListener({
         onLocationChanged: function (location: any) {
             if (!this.isBetterLocation(location)) {
                 return;
