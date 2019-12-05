@@ -1,6 +1,6 @@
 {
     "name": "nativescript-wikitude-chiliz",
-    "version": "2.2.0",
+    "version": "2.2.1",
     "description": "NativeScript plugin for Wikitude.",
     "main": "wikitude",
     "typings": "index.d.ts",
@@ -13,7 +13,7 @@
     "scripts": {
         "tsc": "tsc -skipLibCheck",
         "ios.prepare": "node scripts/get-ios-framework.js",
-        "package": "cd ../publish && rimraf ./package && ./pack.sh",
+        "package": "npm run ios.prepare && cd ../publish && rimraf ./package && ./pack.sh",
         "build": "npm i && npm run ios.prepare && tsc && npm run build.native",
         "build.native": "node scripts/build-native.js",
         "postclone": "npm i && node scripts/postclone.js && cd ../demo && npm i && cd ../src && npm run plugin.link",
