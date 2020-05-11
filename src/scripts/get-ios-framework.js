@@ -9,15 +9,10 @@ const FILE_PATH = path.normalize('./' + FILENAME);
 const TEMP_PATH = path.normalize(`/tmp/${FILENAME.split('.')[0]}`);
 
 function download_framework() {
-
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         const { request } = require("https"),
-            { parse } = require("url"),
-            path = require("path"),
             fs = require("fs"),
-            events = require("events"),
             { stdout } = require("process");
-        const PATH = require('path');
 
         let DownloadProgress = 0;
 
@@ -36,13 +31,15 @@ function download_framework() {
                 console.log("File size " + FILENAME + ": " + response.headers['content-length'] + " bytes.");
 
                 DOWNLOAD_PROGRESS = setInterval(function () {
-                    progress = parseInt((+DownloadProgress / +response.headers['content-length']) * 100, 10);
+                    const progress = parseInt((+DownloadProgress / +response.headers['content-length']) * 100, 10);
                     stdout.write("Downloading " + progress + "%\r");
                 }, 1000);
 
                 response.addListener('data', function (chunk) {
                     DownloadProgress += chunk.length;
-                    downloadfile.write(chunk, encoding = 'binary');
+                    const encoding = 'binary';
+
+                    downloadfile.write(chunk, encoding);
                 });
                 response.addListener("end", function () {
                     downloadfile.end();
@@ -63,8 +60,6 @@ function extract_framework() {
 
         const EXTRACT = require('extract-zip');
         const FS = require('fs');
-        const PATH = require('path');
-        const { parse } = require("url");
 
         // Check if File Exists
         if (FS.existsSync(FILE_PATH)) {
