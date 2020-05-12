@@ -2,7 +2,7 @@
 const url = require('url');
 const path = require('path');
 
-const WIKITUDE_DOWNLOAD_URL = "https://cdn.wikitude.com/sdk/8.9.1/WikitudeSDK_iOS_8-9-1_2019-10-01_02-34-12.zip";
+const WIKITUDE_DOWNLOAD_URL = "https://cdn.wikitude.com/sdk/9.0/WikitudeSDK_iOS_9-0-0_2020-03-30_23-30-26.zip";
 const PARSED_URL = url.parse(WIKITUDE_DOWNLOAD_URL);
 const FILENAME = PARSED_URL.pathname.split("/").pop();
 const FILE_PATH = path.normalize('./' + FILENAME);
@@ -20,7 +20,6 @@ function download_framework() {
             console.log(' %s Succesfully Downloaded', FILENAME);
             resolve();
         } else {
-
             const REQUEST = request(PARSED_URL);
 
             REQUEST.addListener('response', (response) => {
@@ -103,8 +102,8 @@ function clean_up() {
     const fs = require('fs-extra');
 
     console.log('Removing Temp Data');
-    if ( fs.existsSync( TEMP_PATH ) ) {
-        fs.removeSync( TEMP_PATH );
+    if (fs.existsSync(TEMP_PATH)) {
+        fs.removeSync(TEMP_PATH);
         console.log('Removed Temp Data');
     } else {
         console.log('Could not find Temp Data dir. Skiping...');
@@ -114,24 +113,24 @@ function clean_up() {
     const platformFolder = path.normalize('platforms/ios/WikitudeSDK.framework/');
 
     console.log('Removing script strip_wikitude_framework.sh');
-    if ( fs.existsSync( `${platformFolder}/strip_wikitude_framework.sh` ) ) {
-        fs.removeSync( `${platformFolder}/strip_wikitude_framework.sh` );
+    if (fs.existsSync(`${platformFolder}/strip_wikitude_framework.sh`)) {
+        fs.removeSync(`${platformFolder}/strip_wikitude_framework.sh`);
         console.log('Removed script strip_wikitude_framework.sh');
     } else {
         console.log('Could not find strip_wikitude_framework.sh file. Skiping...');
     }
 
     console.log('Removing script wikitude_bitcode.sh');
-    if ( fs.existsSync( `${platformFolder}/wikitude_bitcode.sh` ) ) {
-        fs.removeSync( `${platformFolder}/wikitude_bitcode.sh` );
+    if (fs.existsSync(`${platformFolder}/wikitude_bitcode.sh`)) {
+        fs.removeSync(`${platformFolder}/wikitude_bitcode.sh`);
         console.log('Removed script wikitude_bitcode.sh');
     } else {
         console.log('Could not find wikitude_bitcode.sh file. Skiping...');
     }
 
     console.log('Removing WikitudeSDK Zip');
-    if ( fs.existsSync( FILE_PATH ) ) {
-        fs.removeSync( FILE_PATH );
+    if (fs.existsSync(FILE_PATH)) {
+        fs.removeSync(FILE_PATH);
         console.log('Removed WikitudeSDK Zip')
     } else {
         console.log('Could not find WikitudeSDK Zip file. Skiping...');
