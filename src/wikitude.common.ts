@@ -154,8 +154,8 @@ export class Common extends ContentView implements IWikitudeEventListener {
     });
   }
 
-  public log(...args: any[]) {
-    console.log('[nativescript-wikitude]', args.join(' '));
+  public log(...args: any[]): void {
+    console.log('[nativescript-wikitude]', ...args);
   }
 }
 
