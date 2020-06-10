@@ -1,6 +1,6 @@
 # nativescript-wikitude
 
-##### This is a fork of https://github.com/breningham/nativescript-wikitude that has benn unfortunately inactive.
+##### This is a fork of [@breningham/nativescript-wikitude](https://github.com/breningham/nativescript-wikitude) that has been unfortunately inactive.
 
 [![npm version](https://badge.fury.io/js/nativescript-wikitude-chiliz.svg)](http://badge.fury.io/js/nativescript-wikitude-chiliz)
 
